@@ -1,0 +1,7 @@
+{
+  "name": "MboteEat - Kinshasa Street Food",
+  "description": "L'application ultime pour découvrir et commander la meilleure street-food de Kinshasa avec une carte interactive et une assistance IA.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
