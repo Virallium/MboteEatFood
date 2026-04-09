@@ -9,6 +9,9 @@ import { User as UserIcon, History, Map as MapIcon, ShoppingCart, Send, X, Chevr
 import { getAiRecommendation } from './services/gemini';
 import { SPICE_LABELS, POINTS_DE_VENTE } from './constants';
 
+//----INFO APK IMAGE ET NOM---//
+const photologo1="./components/photos/mboteeat.jpeg";
+const photologo2="./components/photos/mboteeatlogo.jpeg";
 // --- CONFIGURATION FIREBASE ---
 declare var firebase: any;
 const firebaseConfig = {
@@ -107,7 +110,7 @@ const App: React.FC = () => {
   }, []);
 
   const handleRateRestaurant = async (restaurantId: number, noteClient: number) => {
-    if (typeof firebase === 'undefined') return;
+    if (typeof firebase === 'undefined') return false;
     const ratingRef = firebase.database().ref(`restaurant_ratings/${restaurantId}`);
     try {
         await ratingRef.transaction((currentData: any) => {
@@ -229,10 +232,10 @@ const App: React.FC = () => {
   if (view === 'welcome') {
     return (
       <div className="fixed inset-0 bg-black flex flex-col items-center justify-between p-8 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-60" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=80')" }}></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-60" style={{ backgroundImage: "url('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fd36tnp772eyphs.cloudfront.net%2Fblogs%2F1%2F2020%2F04%2FTour-de-lEchangeur-in-Kinshasa-in-the-Democratic-Republic-of-the-Congo.jpg&sp=1775691145Tcfe7903553169d28b0f701a987dcf8c7501b9508201716332eda4f11ab7c177c')" }}></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
         <div className="relative z-10 text-center mt-20">
-          <div className="w-24 h-24 bg-yellow-400 rounded-[2rem] mx-auto mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(255,215,0,0.5)] rotate-3"><span className="text-5xl font-black text-black">ME</span></div>
+          <div className="w-24 h-24 bg-yellow-400 rounded-[2rem] mx-auto mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(255,215,0,0.5)] rotate-3 overflow-hidden"><span className="text-5xl font-black text-black"><img src={photologo2} alt="logo" className="w-100 h-100 rounded-xl" /></span></div>
           <h1 className="text-6xl font-black text-white mb-2 tracking-tighter uppercase leading-none">MboteEat</h1>
           <p className="text-white font-medium text-lg opacity-90 tracking-tight">Le meilleur de la street-food congolaise</p>
         </div>
@@ -267,7 +270,7 @@ const App: React.FC = () => {
       )}
 
       <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-[100]">
-        <div className="bg-black text-white px-6 py-4 rounded-2xl shadow-xl font-black text-sm tracking-widest border border-white/10">MBOTEEAT</div>
+        <div className="bg-black px-4 py-1 rounded-2xl shadow-xl font-black text-sm tracking-widest border border-white overflow-hidden/10"><img src={photologo1} alt="mboteeat logo"  className="rounded-xl w-100 h-10" /></div>
         <div className="flex gap-3">
           <button onClick={() => setIsAiVisible(!isAiVisible)} className={`w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center transition-all ${isAiVisible ? 'bg-yellow-400 text-black' : 'bg-white text-gray-400'}`}><Sparkles size={26} /></button>
           <button onClick={() => setIsCartOpen(true)} className="bg-white w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center relative border border-gray-100">
@@ -282,7 +285,7 @@ const App: React.FC = () => {
         {isAiVisible && (
           <div className="absolute right-6 left-6 bottom-36 max-h-[350px] z-[200] bg-white/95 backdrop-blur-3xl rounded-[3rem] shadow-2xl border border-gray-100 flex flex-col overflow-hidden animate-in slide-in-from-bottom-8">
             <div className="bg-black text-white p-5 flex justify-between items-center">
-               <div className="flex items-center gap-3"><div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center text-black font-black text-xs">LÉO</div><h3 className="font-black text-sm uppercase tracking-widest">Léo - MboteEat</h3></div>
+               <div className="flex items-center gap-3"><div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center text-black font-black text-xs"><img src={photologo2} alt="Léo" className="w-10 h-10 rounded-xl "/></div><h3 className="font-black text-sm uppercase tracking-widest">Léo - MboteEat</h3></div>
                <button onClick={() => setIsAiVisible(false)} className="p-3"><X size={22}/></button>
             </div>
             <div className="flex-1 overflow-y-auto p-6 space-y-4 hide-scrollbar">

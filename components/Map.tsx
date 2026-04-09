@@ -42,11 +42,9 @@ const Map: React.FC<MapProps> = ({ onRestaurantSelect, userLocation }) => {
     // Ajouter les restaurants
     POINTS_DE_VENTE.forEach(restaurant => {
       let typeColor = '#000000';
-      let label = 'M';
+      let label = 'P';
       
       switch(restaurant.type) {
-        case 'malewa': 
-          typeColor = '#000000'; label = 'M'; break;
         case 'poulet': 
           typeColor = '#FFD700'; label = 'P'; break;
         case 'nganda': 
@@ -148,7 +146,7 @@ const Map: React.FC<MapProps> = ({ onRestaurantSelect, userLocation }) => {
       mapInstanceRef.current.setView([userLocation.lat, userLocation.lng], 15);
     }
   }, [userLocation]);
-
+  return <div ref={mapContainerRef} className="absolute inset-0 w-full h-full z-0" />;
   
 };
 

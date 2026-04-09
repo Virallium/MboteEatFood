@@ -17,7 +17,7 @@ export interface MenuItem {
 export interface Restaurant {
   id: number;
   nom: string;
-  type: 'malewa' | 'poulet' | 'nganda' | 'mbisi';
+  type: 'poulet' | 'nganda' | 'mbisi';
   coord: { lat: number; lng: number };
   description: string;
   image: string;

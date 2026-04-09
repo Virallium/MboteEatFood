@@ -19,12 +19,12 @@ export async function getAiRecommendation(mood: string, previousOrders: any[] = 
       - Historique des commandes: ${JSON.stringify(previousOrders)}.
       
       CONSIGNES:
-      1. Suggère UN plat spécifique parmi: Poulet Mayo, Ntaba (chèvre), Ngulu (porc), Liboke (poisson) ou Malewa (riz/pondu), ou aide pour la livraison.
+      1. Suggère UN plat spécifique parmi: Poulet Mayo, Ntaba (chèvre), Ngulu (porc), Liboke (poisson)  ou aide pour la livraison.
       2. Explique pourquoi ce choix correspond à son humeur ou son historique.
       3. Termine toujours par une petite phrase branchée ou un encouragement kinois.
       4. Garde ta réponse courte (max 3-4 phrases) pour un affichage mobile optimal.`,
     });
-    return response.text;
+    return response.text?? "Désolé, je n’ai pas de réponse pour le moment.";
   } catch (error) {
     console.error("Gemini Error:", error);
     return "Masta, réseau ezo déranger moke... Mais Léo aza kaka wana! Prends un bon Poulet Mayo pour te remonter le moral en attendant, omoni ?";
