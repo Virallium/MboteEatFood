@@ -307,12 +307,12 @@ const App: React.FC = () => {
 
       {/* NAVBAR : Elle est toujours rendue si l'utilisateur existe, mais l'état active/hidden gère l'animation */}
       {user && (
-        <div className={`footer-nav ${!isNavbarActive ? 'hidden' : ''}`}>
+        <div className={`footer-nav ${!isNavbarActive ? 'hidden' : ''} relative`}>
           <button 
-            onClick={() => setView('history')} 
+            onClick={() => setView('history')}
             className={`flex flex-col items-center gap-1 transition-all flex-1 ${view === 'history' ? 'text-yellow-400 nav-active-glow scale-110' : 'text-white/40'}`}
           >
-            <History size={26} />
+            <History size={26} color="white" id="History"/>
             <span className="text-[7px] font-black uppercase tracking-widest">Commandes</span>
           </button>
           
@@ -327,7 +327,7 @@ const App: React.FC = () => {
             onClick={() => setView('profile')} 
             className={`flex flex-col items-center gap-1 transition-all flex-1 ${view === 'profile' ? 'text-yellow-400 nav-active-glow scale-110' : 'text-white/40'}`}
           >
-            <UserIcon size={26} />
+            <UserIcon size={26} color="white" id="userIcon"/>
             <span className="text-[7px] font-black uppercase tracking-widest">Profil</span>
           </button>
         </div>
