@@ -10,8 +10,8 @@ import { getAiRecommendation } from './services/gemini';
 import { SPICE_LABELS, POINTS_DE_VENTE } from './constants';
 
 //----INFO APK IMAGE ET NOM---//
-const photologo1="./components/photos/mboteeat.jpeg";
-const photologo2="./components/photos/mboteeatlogo.jpeg";
+import photologo1 from './components/photos/mboteeat.jpeg';
+import photologo2 from './components/photos/mboteeatlogo.jpeg';
 // --- CONFIGURATION FIREBASE ---
 declare var firebase: any;
 const firebaseConfig = {
