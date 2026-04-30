@@ -8,6 +8,8 @@ import Auth from './components/Auth';
 import { User as UserIcon, History, Map as MapIcon, ShoppingCart, Send, X, ChevronRight, Sparkles, Bell, LogOut, Edit3, Camera, Save, AlertTriangle } from 'lucide-react';
 import { getAiRecommendation } from './services/gemini';
 import { SPICE_LABELS, POINTS_DE_VENTE } from './constants';
+import Fade from './components/fadeEffect';
+
 
 //----INFO APK IMAGE ET NOM---//
 import photologo1 from './components/photos/mboteeat.jpeg';
@@ -232,8 +234,12 @@ const App: React.FC = () => {
   if (view === 'welcome') {
     return (
       <div className="fixed inset-0 bg-black flex flex-col items-center justify-between p-8 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center opacity-60" style={{ backgroundImage: "url('https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fpourelle.info%2Fwp-content%2Fuploads%2F2021%2F08%2FIMG-20210813-WA0010.jpg&sp=1777583684T71c7a8c01e7d90bac673e2c684b48af3819bbe32043798b3308b12af19c9d04e')" }}></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-cover bg-center opacity-60" >
+          
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+              <Fade />
+        </div>
         <div className="relative z-10 text-center mt-20">
           <div className="w-24 h-24 bg-yellow-400 rounded-[2rem] mx-auto mb-6 flex items-center justify-center shadow-[0_0_50px_rgba(255,215,0,0.5)] rotate-3 overflow-hidden"><span className="text-5xl font-black text-black"><img src={photologo2} alt="logo" className="w-100 h-100 rounded-xl" /></span></div>
           <h1 className="text-6xl font-black text-white mb-2 tracking-tighter uppercase leading-none">MboteEat</h1>
