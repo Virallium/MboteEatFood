@@ -254,7 +254,8 @@ const App: React.FC = () => {
   // LOGIQUE DE VISIBILITÉ STRICTE : Uniquement sur la carte, pas en cours de commande, pas panier ouvert
   const isNavbarActive = view === 'map' && !selectedRestaurant && !isCartOpen;
   const welcomeText = isNightMode ? "Bonsoir chef ! Léo est prêt pour la livraison de nuit. On mange quoi ?" : "C'est Léo, je suis dans la place. Quoi de neuf, chef ?";
-
+  const logo_day_night= isNightMode ? photologo2 : photologo1
+  // nat-top
   return (
     <div className="fixed inset-0 bg-white flex flex-col h-full overflow-hidden">
       {showOrderToast && (
@@ -268,9 +269,8 @@ const App: React.FC = () => {
           </div>
         </div>
       )}
-
       <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-[100]">
-        <div className="bg-black px-4 py-1 rounded-2xl shadow-xl font-black text-sm tracking-widest border border-white overflow-hidden/10"><img src={photologo1} alt="mboteeat logo"  className="rounded-xl w-100 h-10" /></div>
+        <div className="bg-black px-0.5 py-0.5 rounded-2xl shadow-xl font-black text-sm tracking-widest border border-white overflow-hidden/10"><img src={photologo1} alt="mboteeat logo"  className="rounded-xl w-100 h-10" /></div>
         <div className="flex gap-3">
           <button onClick={() => setIsAiVisible(!isAiVisible)} className={`w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center transition-all ${isAiVisible ? 'bg-yellow-400 text-black' : 'bg-white text-gray-400'}`}><Sparkles size={26} /></button>
           <button onClick={() => setIsCartOpen(true)} className="bg-white w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center relative border border-gray-100">
@@ -285,7 +285,7 @@ const App: React.FC = () => {
         {isAiVisible && (
           <div className="absolute right-6 left-6 bottom-36 max-h-[350px] z-[200] bg-white/95 backdrop-blur-3xl rounded-[3rem] shadow-2xl border border-gray-100 flex flex-col overflow-hidden animate-in slide-in-from-bottom-8">
             <div className="bg-black text-white p-5 flex justify-between items-center">
-               <div className="flex items-center gap-3"><div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center text-black font-black text-xs"><img src={photologo2} alt="Léo" className="w-10 h-10 rounded-xl "/></div><h3 className="font-black text-sm uppercase tracking-widest">Léo - MboteEat</h3></div>
+               <div className="flex items-center gap-3"><div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center text-black font-black text-xs"><img src={logo_day_night} alt="Léo" className="w-10 h-10 rounded-xl "/></div><h3 className="font-black text-sm uppercase tracking-widest">Léo - MboteEat</h3></div>
                <button onClick={() => setIsAiVisible(false)} className="p-3"><X size={22}/></button>
             </div>
             <div className="flex-1 overflow-y-auto p-6 space-y-4 hide-scrollbar">
@@ -312,7 +312,9 @@ const App: React.FC = () => {
             onClick={() => setView('history')}
             className={`flex flex-col items-center gap-1 transition-all flex-1 ${view === 'history' ? 'text-yellow-400 nav-active-glow scale-110' : 'text-white/40'}`}
           >
-            <History size={26} color="white" id="History"/>
+            <div className="div">
+              <History size={26} color="white" id="History"/>
+            </div>
             <span className="text-[7px] font-black uppercase tracking-widest">Commandes</span>
           </button>
           
@@ -327,7 +329,9 @@ const App: React.FC = () => {
             onClick={() => setView('profile')} 
             className={`flex flex-col items-center gap-1 transition-all flex-1 ${view === 'profile' ? 'text-yellow-400 nav-active-glow scale-110' : 'text-white/40'}`}
           >
-            <UserIcon size={26} color="white" id="userIcon"/>
+            <div className="div">
+              <UserIcon size={26} color="white" id="userIcon"/>
+            </div>
             <span className="text-[7px] font-black uppercase tracking-widest">Profil</span>
           </button>
         </div>
