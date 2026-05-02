@@ -292,7 +292,7 @@ const App: React.FC = () => {
         {isAiVisible && (
           <div className="absolute right-6 left-6 bottom-36 max-h-[350px] z-[200] bg-white/95 backdrop-blur-3xl rounded-[3rem] shadow-2xl border border-gray-100 flex flex-col overflow-hidden animate-in slide-in-from-bottom-8">
             <div className="bg-black text-white p-5 flex justify-between items-center">
-               <div className="flex items-center gap-3"><div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center text-black font-black text-xs"><img src={logo_day_night} alt="Léo" className="w-10 h-10 rounded-xl "/></div><h3 className="font-black text-sm uppercase tracking-widest">Léo - MboteEat</h3></div>
+               <div className="flex items-center gap-3"><div className="w-10 h-10 bg-yellow-400 rounded-xl flex items-center justify-center text-black font-black text-xs"><img src={photologo2} alt="Léo" className="w-10 h-10 rounded-xl "/></div><h3 className="font-black text-sm uppercase tracking-widest">Léo - MboteEat</h3></div>
                <button onClick={() => setIsAiVisible(false)} className="p-3"><X size={22}/></button>
             </div>
             <div className="flex-1 overflow-y-auto p-6 space-y-4 hide-scrollbar">
