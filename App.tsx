@@ -14,6 +14,7 @@ import Fade from './components/fadeEffect';
 //----INFO APK IMAGE ET NOM---//
 import photologo1 from './components/photos/mboteeat.jpeg';
 import photologo2 from './components/photos/mboteeatlogo.jpeg';
+import photologonoir from "./components/photos/logonoir.png";
 // --- CONFIGURATION FIREBASE ---
 declare var firebase: any;
 const firebaseConfig = {
@@ -260,7 +261,7 @@ const App: React.FC = () => {
   // LOGIQUE DE VISIBILITÉ STRICTE : Uniquement sur la carte, pas en cours de commande, pas panier ouvert
   const isNavbarActive = view === 'map' && !selectedRestaurant && !isCartOpen;
   const welcomeText = isNightMode ? "Bonsoir chef ! Léo est prêt pour la livraison de nuit. On mange quoi ?" : "C'est Léo, je suis dans la place. Quoi de neuf, chef ?";
-  const logo_day_night= isNightMode ? photologo2 : photologo1
+
   // nat-top
   return (
     <div className="fixed inset-0 bg-white flex flex-col h-full overflow-hidden">
@@ -276,7 +277,7 @@ const App: React.FC = () => {
         </div>
       )}
       <div className="absolute top-6 left-6 right-6 flex justify-between items-center z-[100]">
-        <div className="bg-black px-0.5 py-0.5 rounded-2xl shadow-xl font-black text-sm tracking-widest border border-white overflow-hidden/10"><img src={photologo1} alt="mboteeat logo"  className="rounded-xl w-100 h-10" /></div>
+        <div className="bg-black px-0.5 py-0.5 rounded-2xl shadow-xl font-black text-sm tracking-widest border border-white overflow-hidden/10"><img src={photologonoir} alt="mboteeat logo"  className="rounded-xl w-100 h-10" /></div>
         <div className="flex gap-3">
           <button onClick={() => setIsAiVisible(!isAiVisible)} className={`w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center transition-all ${isAiVisible ? 'bg-yellow-400 text-black' : 'bg-white text-gray-400'}`}><Sparkles size={26} /></button>
           <button onClick={() => setIsCartOpen(true)} className="bg-white w-14 h-14 rounded-2xl shadow-xl flex items-center justify-center relative border border-gray-100">
